@@ -114,14 +114,14 @@ export const agentCardProperties: INodeProperties[] = [
 		displayName: 'Agent Name',
 		name: 'agentName',
 		type: 'string',
-		default: 'Hello Agent',
+		default: 'Poem Agent',
 		description: 'The name of the A2A agent',
 	},
 	{
 		displayName: 'Agent Description',
 		name: 'agentDescription',
 		type: 'string',
-		default: 'A simple agent that says hello.',
+		default: 'Create, edit, or analyze poems in different styles and themes.',
 		description: 'Description of what the agent does',
 	},
 	{
@@ -152,7 +152,7 @@ export const agentCardProperties: INodeProperties[] = [
 		typeOptions: {
 			rows: 10,
 		},
-		default: '[{"id":"general_movie_chat","name":"General Movie Chat","description":"Answer general questions or chat about movies, actors, directors.","tags":["movies","actors","directors"],"examples":["Tell me about the plot of Inception.","Recommend a good sci-fi movie.","Who directed The Matrix?","What other movies has Scarlett Johansson been in?","Find action movies starring Keanu Reeves","Which came out first, Jurassic Park or Terminator 2?"],"inputModes":["text"],"outputModes":["text","task-status"]}]',
+		default: '[{"id":"writing_poems","name":"Writing Poems","description":"Create, edit, or analyze poems in different styles and themes.","tags":["poetry","writing","literature"],"examples":["Write a poem about the ocean at sunset.","Create a haiku about loneliness.","Can you write a romantic poem in free verse?","Turn this paragraph into a poem about hope.","Explain the meaning of this poem.","Make this poem rhyme while keeping the same meaning."],"inputModes":["text"],"outputModes":["text","task-status"]}]',
 		description: 'List of skills for the agent (JSON array)',
 	},
 ];

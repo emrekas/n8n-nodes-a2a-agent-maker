@@ -7,6 +7,8 @@ import {
 	ICredentialTestRequest,
 	IHttpRequestOptions,
 } from 'n8n-workflow';
+import {startServer} from '../nodes/ApaleoAgent/a2a-hub';
+
 
 export class ApaleoAgentApi implements ICredentialType {
 	name = 'apaleoAgentApi';
@@ -43,9 +45,22 @@ export class ApaleoAgentApi implements ICredentialType {
 			required: true,
 			description: 'Client Secret for the Apaleo API (Custom App)',
 		},
+		{
+			displayName: 'Gemini API Key',
+			name: 'geminiApiKey',
+			type: 'string',
+			default: '',
+			required: true,
+			description: 'Gemini API Key for the Apaleo API',
+			typeOptions: {
+				password: true,
+				hideValue: true,
+			},
+		},
 	];
 
 	async preAuthentication(this: IHttpRequestHelper, credentials: ICredentialDataDecryptedObject) {
+		startServer();
 		// const url = `https://identity.apaleo.com/connect/token`;
 		const url = `http://localhost:3456/api/connect/token`;
 		const basicToken = Buffer.from(credentials.clientId + ':' + credentials.clientSecret).toString(

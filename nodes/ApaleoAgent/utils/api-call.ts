@@ -64,6 +64,10 @@ async function makeAuthenticatedRequest(
 ): Promise<any> {
 	const credentials = await this.getCredentials('apaleoAgentApi');
 
+	if (!process.env.GEMINI_API_KEY) {
+		process.env.GEMINI_API_KEY = credentials.geminiApiKey as string;
+	}
+
 	const options: IHttpRequestOptions = {
 		method,
 		url: `${BASE_URL}${endpoint}`,

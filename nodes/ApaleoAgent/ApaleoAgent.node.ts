@@ -20,7 +20,7 @@ export class ApaleoAgent implements INodeType {
 		icon: 'file:apaleo-agent.svg',
 		group: ['input'],
 		version: 1,
-		description: '={{ $parameter.agentName.parseJson().description }}',
+		description: 'Interact with A2A agents through the Apaleo Hub',
 		defaults: {
 			name: 'Apaleo Agent',
 		},
@@ -50,13 +50,14 @@ export class ApaleoAgent implements INodeType {
 				name: 'message',
 				type: 'string',
 				default: '',
-				description: 'The message to send to the agent',
+				description: 'The message to send to the agent. Use the input fields to provide context for the agent.',
 			},
 			{
 				displayName: 'Agent Card',
 				name: 'agentCard',
 				type: 'hidden',
 				default: '={{ $parameter.agentName }}',
+				description: 'The agent card to use for the agent. This is automatically set when an agent is selected.',
 			},
 		],
 	};

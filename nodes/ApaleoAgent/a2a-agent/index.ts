@@ -5,12 +5,6 @@ import { AgentExecutor, RequestContext, ExecutionEventBus } from "@a2a-js/sdk/se
 import { ai } from "./genkit";
 import { MessageData } from "genkit";
 
-
-if (!process.env.GEMINI_API_KEY) {
-  console.error("GEMINI_API_KEY environment variable is required")
-  process.exit(1);
-}
-
 // Simple store for contexts
 const contexts: Map<string, Message[]> = new Map();
 
