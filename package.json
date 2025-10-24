@@ -1,0 +1,63 @@
+{
+  "name": "n8n-nodes-apaleoagent",
+  "version": "0.1.0",
+  "description": "Apaleo Node for n8n",
+  "keywords": [
+    "n8n-community-node-package"
+  ],
+  "license": "MIT",
+  "homepage": "https://apaleo.com",
+  "author": {
+    "name": "Apaleo",
+    "email": "support@apaleo.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emrekas/n8n-nodes-a2a-agent-maker.git"
+  },
+  "engines": {
+    "node": ">=20.15"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "npx rimraf dist && tsc && gulp build",
+    "dev": "tsc --watch",
+    "format": "prettier nodes credentials --write",
+    "lint": "eslint nodes credentials package.json",
+    "lintfix": "eslint nodes credentials package.json --fix",
+    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/ApaleoAgentApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/ApaleoAgent/ApaleoAgent.node.js",
+      "dist/nodes/ApaleoAgent/ApaleoAgentTrigger.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@typescript-eslint/parser": "~8.32.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.3",
+    "gulp": "^5.0.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "dependencies": {
+    "@a2a-js/sdk": "^0.3.4",
+    "@genkit-ai/googleai": "^1.21.0",
+    "express": "^5.1.0",
+    "genkit": "^1.21.0",
+    "uuid": "^13.0.0",
+    "zod": "^4.1.12"
+  }
+}
